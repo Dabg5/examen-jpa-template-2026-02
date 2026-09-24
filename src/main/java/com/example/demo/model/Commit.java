@@ -16,7 +16,7 @@ import lombok.*;
 public class Commit {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "commit_hash", nullable = false, unique = true)
@@ -34,10 +34,12 @@ public class Commit {
     @Column(name = "commit_date", nullable = false)
     private Timestamp commitDate;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "repository_id", nullable = false)
     private Repository repository;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", nullable = false)
     private User collaborators;

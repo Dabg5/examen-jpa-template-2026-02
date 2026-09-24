@@ -20,4 +20,11 @@ public class CommitController {
     public List<Commit> findAllCommits() {
         return commitRepository.findAll();
     }
+
+    @GetMapping("/exercise4")
+    public List<Commit> exercise4() {
+        return commitRepository.findDistinctByRepository_Parent_NameAndMessageContainingIgnoreCaseAndLinesAddedGreaterThan("template-jpa-exam", "fix", 50);
+    }
+
+
 }

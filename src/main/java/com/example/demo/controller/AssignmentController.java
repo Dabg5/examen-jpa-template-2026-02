@@ -16,7 +16,7 @@ public class AssignmentController {
 
     private final IAssignmentRepository assignmentRepository;
 
-    @GetMapping
+    @GetMapping("/prueba")
     public List<Assignment> findAllAssignments() {
         return assignmentRepository.findAll();
     }
